@@ -11,21 +11,21 @@ public class LoginCapPageHandle {
     }
 
     public void inputUsername(String username){
-        loginCapPage.findUsernameInput().sendKeys(username);
+        loginCapPage.sendKey(loginCapPage.findUsernameInput(), username);
     }
     public void inputPassword(String password){
-        loginCapPage.findPasswordInput().sendKeys(password);
+        loginCapPage.sendKey(loginCapPage.findPasswordInput(), password);
     }
 
     public void selectRememberMe(boolean select){
         if (select){
-            loginCapPage.findRememberMeBox().click();
+            loginCapPage.click(loginCapPage.findRememberMeBox());
         }
     }
     public void clickLogin(){
-        loginCapPage.findLoginButton().click();
+        loginCapPage.click(loginCapPage.findLoginButton());
     }
     public void clickConfirmButton(){
-        loginCapPage.findConfirmButton().click();
+        loginCapPage.click(loginCapPage.findConfirmButton());
     }
 }

@@ -1,11 +1,14 @@
 package org.demo2.pages;
 
+
+import org.apache.log4j.Logger;
 import org.demo2.base.BasePage;
 import org.demo2.base.DriverBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class CapHomePage extends BasePage {
+    private static Logger logger = Logger.getLogger(CapHomePage.class.getName());
     public CapHomePage(DriverBase driver) {
         super(driver);
     }

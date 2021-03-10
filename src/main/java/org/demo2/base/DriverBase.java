@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 
 public class DriverBase {
     private WebDriver driver;
+    public WebDriver getDriver(){
+        return this.driver;
+    }
 
     /**
      * 创建对象时实例化driver
