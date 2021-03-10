@@ -46,5 +46,7 @@ public class RunCases {
         }
         mdpHomePageHandle.ClickMDPProjectList();
         mdpHomePageHandle.ClickCreateProjectButton();
+        mdpHomePageHandle.inputProjectName("zxingzcs");
+        mdpHomePageHandle.inputProjectCode("zxingzcs");
     }
 }

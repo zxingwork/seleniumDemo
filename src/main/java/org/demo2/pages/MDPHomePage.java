@@ -19,4 +19,16 @@ public class MDPHomePage extends BasePage {
 //        return element(By.cssSelector("//span[text()='创建项目']/parent/parent::*"));
         return element(By.xpath("/html/body/div/div[2]/div[3]/div/div[2]/button/span"));
     }
+
+    public WebElement createProjectName(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[1]/div/div/input"));
+    }
+
+    public WebElement createProjectCode(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[2]/div/div/input"));
+    }
+
+//    public WebElement createProjectType(){
+////        return element(By.xpath())
+//    }
 }

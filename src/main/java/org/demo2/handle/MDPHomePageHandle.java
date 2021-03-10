@@ -13,16 +13,23 @@ public class MDPHomePageHandle extends HandleBase {
         mdpHomePage = new MDPHomePage(driver);
         this.driver = driver.getDriver();
     }
+    public boolean onPage(){
+        return "移动开发平台".equalsIgnoreCase(this.driver.getTitle());
+    }
+    public WebDriver getDriver(){
+        return this.driver;
+    }
     public void ClickMDPProjectList(){
         mdpHomePage.click(mdpHomePage.MDPProjectList());
     }
     public void ClickCreateProjectButton(){
         mdpHomePage.createProjectButton().click();
     }
-    public boolean onPage(){
-        return "移动开发平台".equalsIgnoreCase(this.driver.getTitle());
+
+    public void inputProjectName(String projectName){
+        mdpHomePage.sendKey(mdpHomePage.createProjectName(), projectName);
     }
-    public WebDriver getDriver(){
-        return this.driver;
+    public void inputProjectCode(String projectCode){
+        mdpHomePage.sendKey(mdpHomePage.createProjectCode(), projectCode);
     }
 }

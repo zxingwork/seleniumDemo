@@ -97,4 +97,7 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    public void switchToFrame(){
+    }
 }
