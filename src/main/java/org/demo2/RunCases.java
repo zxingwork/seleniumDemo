@@ -8,6 +8,7 @@ import org.demo2.handle.LoginCapPageHandle;
 import org.demo2.handle.MDPHomePageHandle;
 import org.demo2.pages.CapHomePage;
 
+
 public class RunCases {
 
     public static void main(String[] args) throws InterruptedException {
@@ -48,5 +49,9 @@ public class RunCases {
         mdpHomePageHandle.ClickCreateProjectButton();
         mdpHomePageHandle.inputProjectName("zxingzcs");
         mdpHomePageHandle.inputProjectCode("zxingzcs");
+        mdpHomePageHandle.clickProjectTypeSelect();
+        mdpHomePageHandle.selectAProjectType(2);
+        mdpHomePageHandle.selectPlotForm("Android", "iOS");
+        mdpHomePageHandle.selectMode(2);
     }
 }

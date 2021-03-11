@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 import java.util.Set;
 
 public class BasePage {
@@ -40,9 +39,9 @@ public class BasePage {
     }
 
     /**
-     * sendKeys
-     * @param element
-     * @param context
+     * sendKeys 向指定元素输入值
+     * @param element 页面元素
+     * @param context 输入值
      */
     public void sendKey(WebElement element, String context){
         if (element != null){
@@ -83,6 +82,10 @@ public class BasePage {
         }
     }
 
+    /**
+     * 跳转到新打开的页面句柄
+     * 功能不够完善，后续需要更新
+     */
     public void switchToNewWindow(){
         try {
             String parentHandle = this.getWindowHandle();
@@ -98,6 +101,4 @@ public class BasePage {
         }
     }
 
-    public void switchToFrame(){
-    }
 }

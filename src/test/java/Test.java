@@ -1,11 +1,12 @@
 import org.apache.log4j.Logger;
+import org.demo2.enums.Color;
+import org.demo2.enums.PlatForm;
 
 public class Test {
     private static Logger logger = Logger.getLogger(Test.class.getName());
 
     public static void main(String[] args) {
-        logger.debug("debug message");
-        logger.info("info message");
-        logger.error("error message");
+        System.out.println(Color.GREEN.toString().equals("GREEN"));
+
     }
 }

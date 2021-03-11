@@ -1,12 +1,15 @@
 package org.demo2.handle;
 
+import org.apache.log4j.Logger;
 import org.demo2.base.DriverBase;
 import org.demo2.base.HandleBase;
+import org.demo2.enums.PlatForm;
 import org.demo2.pages.MDPHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class MDPHomePageHandle extends HandleBase {
+    private Logger logger = Logger.getLogger(MDPHomePageHandle.class.getName());
     private final MDPHomePage mdpHomePage;
     private WebDriver driver;
     public MDPHomePageHandle(DriverBase driver) {
@@ -31,5 +34,63 @@ public class MDPHomePageHandle extends HandleBase {
     }
     public void inputProjectCode(String projectCode){
         mdpHomePage.sendKey(mdpHomePage.createProjectCode(), projectCode);
+    }
+    public void clickProjectTypeSelect(){
+        mdpHomePage.click(mdpHomePage.protectTypeSelect());
+    }
+
+    /**
+     * 选择项目类型
+     * @param index 1：HTML5应用；2：混合应用
+     */
+    public void selectAProjectType(int index){
+        if (index==1){
+            // 选择HTML5应用
+            mdpHomePage.click(mdpHomePage.protectTypeSelectHtml5());
+        }
+        else if (index==2){
+            // 选择混合应用
+            mdpHomePage.click(mdpHomePage.projectTypeSelectMix());
+        }
+        else {
+            logger.error("请输入正确的项目编号");
+        }
+    }
+
+    /**
+     * 选择平台:单选
+     * @param platForm 平台名：[Android,iOS]
+     */
+    public void selectPlotForm(String platForm){
+        if ("Android".equalsIgnoreCase(platForm)){
+            mdpHomePage.click(mdpHomePage.platformAndroid());
+        }else if ("iOS".equalsIgnoreCase(platForm)){
+            mdpHomePage.click(mdpHomePage.platformIOS());
+        }
+    }
+
+    /**
+     * 选择平台：多选
+     * @param platForm1：
+     * @param platForm2：
+     */
+    public void selectPlotForm(String platForm1, String platForm2){
+        if (platForm1.equalsIgnoreCase("Android") && platForm2.equalsIgnoreCase("iOS")){
+            mdpHomePage.click(mdpHomePage.platformIOS());
+            mdpHomePage.click(mdpHomePage.platformAndroid());
+        }
+    }
+
+    /**
+     * 选择模式
+     * @param index 1：离线模式 2：在线模式
+     */
+    public void selectMode(int index){
+        if (index == '1'){
+            mdpHomePage.click(mdpHomePage.modeOffLine());
+        }
+        else if (index == '2'){
+            mdpHomePage.click(mdpHomePage.modeOnline());
+        }
     }
 }
