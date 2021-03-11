@@ -12,7 +12,6 @@ public class MDPHomePage extends BasePage {
     }
     private Logger logger = Logger.getLogger(MDPHomePage.class.getName());
     public WebElement MDPProjectList(){
-
         return element(By.xpath("/html/body/div[1]/div[2]/div[1]/div[1]/div[1]"));
     }
 
@@ -147,13 +146,26 @@ public class MDPHomePage extends BasePage {
     }
 
     /**
-     * 服务地址输入框
+     * 服务域名输入框
      * @return 元素
      */
     public WebElement ServerDomainInput(){
         return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[11]/div/div[1]/div/div/div[1]/input"));
     }
+
+    /**
+     * 服务地址上下文输入框
+     * @return 元素
+     */
     public WebElement SererContextInput(){
         return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[11]/div/div[2]/div/div/div[1]/input"));
+    }
+
+    /**
+     * 确定新建项目按钮
+     * @return 元素
+     */
+    public WebElement ConfirmCreateAProject(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[3]/div/button[2]"));
     }
 }

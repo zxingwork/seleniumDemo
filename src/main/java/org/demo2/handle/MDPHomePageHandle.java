@@ -161,8 +161,20 @@ public class MDPHomePageHandle extends HandleBase {
         mdpHomePage.sendKey(mdpHomePage.iOSBundleIDInput(), ID);
     }
 
+    /**
+     * 输入服务地址
+     * @param domain 域名
+     * @param context 上下文
+     */
     public void inputServerAddr(String domain, String context){
         mdpHomePage.sendKey(mdpHomePage.ServerDomainInput(),domain);
         mdpHomePage.sendKey(mdpHomePage.SererContextInput(), context);
+    }
+
+    /**
+     * 点击确定新建项目
+     */
+    public void clickConfirmCreateAProject(){
+        mdpHomePage.click(mdpHomePage.ConfirmCreateAProject());
     }
 }

@@ -1,4 +1,4 @@
-package org.demo2;
+package org.demo2.cases;
 
 
 import org.apache.log4j.Logger;
@@ -6,7 +6,6 @@ import org.demo2.base.DriverBase;
 import org.demo2.handle.CapHomePageHandle;
 import org.demo2.handle.LoginCapPageHandle;
 import org.demo2.handle.MDPHomePageHandle;
-import org.demo2.pages.CapHomePage;
 
 import java.awt.*;
 import java.util.UUID;
@@ -66,7 +65,6 @@ public class RunCases {
         mdpHomePageHandle.InputIOSBundleID("com.csgcomtop.CSGWhiteLIstNewEight");
         mdpHomePageHandle.inputServerAddr("127.0.0.1:8080","/api");
         mdpHomePageHandle.clickConfirmCreateAProject();
-        mdpHomePageHandle.ClickMDPProjectList();
     }
 }
 
