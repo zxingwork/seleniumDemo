@@ -17,7 +17,7 @@ public class RunCases {
     public static void main(String[] args) throws InterruptedException, AWTException {
         Logger logger = Logger.getLogger(RunCases.class.getName());
         DriverBase driverBase = new DriverBase("Chrome");
-//        driverBase.maxWindow();
+        driverBase.getDriver().manage().window().maximize();
         driverBase.getUrl("http://10.10.10.109/web/cap/ptc/login/CapLogin.jsp");
         LoginCapPageHandle loginCapPageHandle = new LoginCapPageHandle(driverBase);
         loginCapPageHandle.inputUsername("CapSuperAdmin");
@@ -66,7 +66,11 @@ public class RunCases {
         mdpHomePageHandle.InputIOSBundleID("com.csgcomtop.CSGWhiteLIstNewEight");
         mdpHomePageHandle.inputServerAddr("127.0.0.1:8080","/api");
         mdpHomePageHandle.clickConfirmCreateAProject();
-        mdpHomePageHandle.ClickMDPProjectList();
+        if (mdpHomePageHandle.assertAfterCreateProject()){
+            mdpHomePageHandle.screenShot("保存项目成功");
+        }else {
+            mdpHomePageHandle.screenShot("保存项目失败");
+        }
     }
 }
 
