@@ -8,12 +8,15 @@ import org.demo2.handle.LoginCapPageHandle;
 import org.demo2.handle.MDPHomePageHandle;
 import org.demo2.pages.CapHomePage;
 
+import java.awt.*;
+
 
 public class RunCases {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, AWTException {
         Logger logger = Logger.getLogger(RunCases.class.getName());
         DriverBase driverBase = new DriverBase("Chrome");
+//        driverBase.maxWindow();
         driverBase.getUrl("http://10.10.10.109/web/cap/ptc/login/CapLogin.jsp");
         LoginCapPageHandle loginCapPageHandle = new LoginCapPageHandle(driverBase);
         loginCapPageHandle.inputUsername("CapSuperAdmin");
@@ -38,7 +41,6 @@ public class RunCases {
         capHomePageHandle.ClickMDProject();
         capHomePageHandle.switchToNewHandle();
 
-        Thread.sleep(5000);
         MDPHomePageHandle mdpHomePageHandle = new MDPHomePageHandle(driverBase);
         if (mdpHomePageHandle.onPage()){
             System.out.println("打开页面成功");
@@ -52,6 +54,16 @@ public class RunCases {
         mdpHomePageHandle.clickProjectTypeSelect();
         mdpHomePageHandle.selectAProjectType(2);
         mdpHomePageHandle.selectPlotForm("Android", "iOS");
-        mdpHomePageHandle.selectMode(2);
+        mdpHomePageHandle.selectMode(1);
+        mdpHomePageHandle.clickAndroidSignInput();
+        mdpHomePageHandle.selectAndroidSign("uu");
+        mdpHomePageHandle.clickIOSSignInput();
+        mdpHomePageHandle.selectIOSSign("zx");
+        mdpHomePageHandle.clickUploadButton();
+        mdpHomePageHandle.uploadIOSPackagingCertificate("E:\\02企信下载文件\\certificate\\certificate\\jjkz_20200617production.mobileprovision");
+        mdpHomePageHandle.InputIOSBundleID("com.csgcomtop.CSGWhiteLIstNewEight");
+        mdpHomePageHandle.inputServerAddr("127.0.0.1:8080","/api");
+
     }
 }
+

@@ -1,5 +1,6 @@
 package org.demo2.pages;
 
+import org.apache.log4j.Logger;
 import org.demo2.base.BasePage;
 import org.demo2.base.DriverBase;
 import org.openqa.selenium.By;
@@ -9,7 +10,7 @@ public class MDPHomePage extends BasePage {
     public MDPHomePage(DriverBase driver) {
         super(driver);
     }
-
+    private Logger logger = Logger.getLogger(MDPHomePage.class.getName());
     public WebElement MDPProjectList(){
 
         return element(By.xpath("/html/body/div[1]/div[2]/div[1]/div[1]/div[1]"));
@@ -37,7 +38,7 @@ public class MDPHomePage extends BasePage {
      * @return WebElement
      */
     public WebElement protectTypeSelectHtml5(){
-        return element(By.xpath("/html/body/div[3]/div[1]/div[1]/ul/li[1]"));
+        return element(By.xpath("//span[text()='HTML5应用']/parent::*"));
     }
 
     /**
@@ -45,7 +46,7 @@ public class MDPHomePage extends BasePage {
      * @return WebElement
      */
     public WebElement projectTypeSelectMix(){
-        return element(By.xpath("/html/body/div[3]/div[1]/div[1]/ul/li[2]"));
+        return element(By.xpath("//span[text()='混合应用']/parent::*"));
     }
 
     /**
@@ -80,4 +81,79 @@ public class MDPHomePage extends BasePage {
         return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[5]/div/label[2]/span[2]"));
     }
 
+    /**
+     * 安卓证书下拉框
+     * @return 元素
+     */
+    public WebElement androidSignInput(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[6]/div/div/div/input"));
+    }
+
+    /**
+     * ios证书下拉框
+     * @return 元素
+     */
+    public WebElement iOSSignInput(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[7]/div/div/div/input"));
+    }
+
+    /**
+     * 获取android签名证书
+     * @param signName 证书名称
+     * @return 元素
+     */
+    public WebElement signAndroid(String signName){
+        try {
+            WebElement element = element(By.xpath("/html/body/div/div[1]/div[1]/ul/li/span[text()='"+signName+"']/parent::*"));
+            logger.debug("定位Android证书成功："+signName);
+            return element;
+        }catch (Exception e){
+            logger.error("定位Android证书失败："+signName);
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取iOS签名证书
+     * @param signName 证书名称
+     * @return 元素
+     */
+    public WebElement signIOS(String signName){
+        try {
+            WebElement element = element(By.xpath("/html/body/div/div[1]/div[1]/ul/li/span[text()='"+signName+"']/parent::*"));
+            logger.debug("选择iOS证书成功："+signName);
+            return element;
+        }catch (Exception e){
+            logger.error("选择iOS证书失败："+signName);
+            return null;
+        }
+    }
+
+    /**
+     * 上传iOS描述文件按钮
+     * @return 元素
+     */
+    public WebElement uploadButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[8]/div/div/button"));
+    }
+
+    /**
+     * iOS bundle ID输入框
+     * @return 元素
+     */
+    public WebElement iOSBundleIDInput(){
+        return element(By.xpath("//input[@placeholder='请输入Bundle ID，如：com.comtop.test']"));
+    }
+
+    /**
+     * 服务地址输入框
+     * @return 元素
+     */
+    public WebElement ServerDomainInput(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[11]/div/div[1]/div/div/div[1]/input"));
+    }
+    public WebElement SererContextInput(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[2]/form/div[11]/div/div[2]/div/div/div[1]/input"));
+    }
 }

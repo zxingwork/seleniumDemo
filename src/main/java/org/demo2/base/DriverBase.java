@@ -34,6 +34,8 @@ public class DriverBase {
     public void getUrl(String url){
         driver.get(url);
     }
-
+    public void maxWindow(){
+        this.driver.manage().window().maximize();
+    }
 
 }

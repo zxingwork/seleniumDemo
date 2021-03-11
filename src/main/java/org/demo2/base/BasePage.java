@@ -5,7 +5,10 @@ package org.demo2.base;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 public class BasePage {
@@ -21,8 +24,16 @@ public class BasePage {
      * @return
      */
     public WebElement element(By by){
+//        old version↓
+//        return driver.element(by);
+
+        WebDriverWait wait = new WebDriverWait(this.driver.getDriver(),10);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         logger.debug("["+this.getTitle()+"]"+"获取元素"+by);
-        return driver.element(by);
+        return element;
+
+
+
     }
 
     /**
@@ -99,6 +110,9 @@ public class BasePage {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public void maxWindow(){
+        this.driver.getDriver().manage().window().maximize();
     }
 
 }
