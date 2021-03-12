@@ -296,4 +296,27 @@ public class MDPHomePage extends BasePage {
     public WebElement confirmAddCustomComponentButton(){
         return element(By.xpath("/html/body/div/div/div/div/button/span[text()='确定']"));
     }
+
+    /**
+     * 添加依赖的名称
+     * @return 元素
+     */
+    public WebElement newDependenceNameInput(){
+        return element(By.xpath("//input[@placeholder='请输入依赖名称，如：jquery']"));
+    }
+
+    /**
+     * 添加依赖的版本号
+     * @return 元素
+     */
+    public WebElement newDependenceVersionInput(){
+        return element(By.xpath("//input[@placeholder='请输入依赖版本，如：3.1.1']"));
+    }
+
+    /**确定添加依赖按钮
+     * @return 元素
+     */
+    public WebElement confirmAddNewDependenceButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[6]/div/div[3]/div/button[2]"));
+    }
 }

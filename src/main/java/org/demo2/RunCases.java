@@ -12,6 +12,9 @@ import java.awt.*;
 import java.util.UUID;
 
 
+/**
+ * 执行案例主程序
+ */
 public class RunCases {
 
     public static void main(String[] args) throws InterruptedException, AWTException {
@@ -66,7 +69,7 @@ public class RunCases {
         mdpHomePageHandle.clickIOSSignInput();
         mdpHomePageHandle.selectIOSSign("zx");
         mdpHomePageHandle.clickUploadButton();
-        mdpHomePageHandle.uploadIOSPackagingCertificate("E:\\02企信下载文件\\certificate\\certificate\\jjkz_20200617production.mobileprovision");
+        mdpHomePageHandle.uploadIOSPackagingCertificate(System.getProperty("user.dir")+"\\static\\jjkz_20200617production.mobileprovision");
         mdpHomePageHandle.InputIOSBundleID("com.csgcomtop.CSGWhiteLIstNewEight");
         mdpHomePageHandle.inputServerAddr("127.0.0.1:8080","/api");
         mdpHomePageHandle.clickConfirmCreateAProject();
@@ -88,13 +91,17 @@ public class RunCases {
         mdpHomePageHandle.clickSaveNewPageButton();
         mdpHomePageHandle.clickAddResourceFileButton();
         mdpHomePageHandle.clickUploadResourceFileButton();
-        mdpHomePageHandle.uploadResourceFile("E:\\02企信下载文件\\mdp-compile-components\\blocksDest\\mdpCompileComponentsBlocks.umd.min.js");
+        mdpHomePageHandle.uploadResourceFile(System.getProperty("user.dir")+"\\static\\mdpCompileComponentsBlocks.umd.min.js");
         mdpHomePageHandle.clickConfirmAddResourceFileButton();
 
         mdpHomePageHandle.clickAddCustomComponentButton();
         mdpHomePageHandle.clickUploadCustomComponentButton();
-        mdpHomePageHandle.uploadFile("E:\\02企信下载文件\\mdp-compile-components\\blocksDest\\mdpCompileComponentsBlocks.umd.min.js");
+        mdpHomePageHandle.uploadFile(System.getProperty("user.dir")+"\\static\\mdpCompileComponentsBlocks.umd.min.js");
         mdpHomePageHandle.clickConfirmAddCustomComponentButton();
+
+        mdpHomePageHandle.clickAddNewDependenciesButton();
+        mdpHomePageHandle.inputNewDependenceName("jquery");
+        mdpHomePageHandle.clickConfirmAddNewDependence();
     }
 }
 

@@ -343,4 +343,27 @@ public class MDPHomePageHandle extends HandleBase {
     public void clickConfirmAddCustomComponentButton(){
         mdpHomePage.click(mdpHomePage.confirmAddCustomComponentButton());
     }
+
+    /**
+     * 输入依赖名称
+     * @param dependenceName 依赖名
+     */
+    public void inputNewDependenceName(String dependenceName){
+        mdpHomePage.sendKey(mdpHomePage.newDependenceNameInput(), dependenceName);
+    }
+
+    /**
+     * 输入依赖版本号
+     * @param version 版本号
+     */
+    public void inputNewDependenceVersion(String version){
+        mdpHomePage.sendKey(mdpHomePage.newDependenceVersionInput(), version);
+    }
+
+    /**
+     * 点击确定添加依赖
+     */
+    public void clickConfirmAddNewDependence(){
+        mdpHomePage.click(mdpHomePage.confirmAddNewDependenceButton());
+    }
 }

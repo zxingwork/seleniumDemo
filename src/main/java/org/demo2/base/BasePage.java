@@ -18,8 +18,8 @@ import java.util.Set;
 import java.util.UUID;
 
 public class BasePage {
-    private Logger logger = Logger.getLogger(this.getClass().getName());
-    private DriverBase driver;
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
+    private final DriverBase driver;
     public BasePage(DriverBase driver){
         this.driver = driver;
     }
