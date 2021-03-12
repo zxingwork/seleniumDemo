@@ -80,6 +80,21 @@ public class RunCases {
         mdpHomePageHandle.clickInstallProjectDependencies();
         mdpHomePageHandle.clickBackWorkSpaceButton();
 
+        mdpHomePageHandle.clickAddNewPage();
+        mdpHomePageHandle.inputPageName();
+        mdpHomePageHandle.inputPageTitle();
+        // 请输入数字或小写字母且每级目录只能以小写字母开头，如：dir1或dir1/dir2
+        mdpHomePageHandle.inputPageSaveFolder("auto/d2");
+        mdpHomePageHandle.clickSaveNewPageButton();
+        mdpHomePageHandle.clickAddResourceFileButton();
+        mdpHomePageHandle.clickUploadResourceFileButton();
+        mdpHomePageHandle.uploadResourceFile("E:\\02企信下载文件\\mdp-compile-components\\blocksDest\\mdpCompileComponentsBlocks.umd.min.js");
+        mdpHomePageHandle.clickConfirmAddResourceFileButton();
+
+        mdpHomePageHandle.clickAddCustomComponentButton();
+        mdpHomePageHandle.clickUploadCustomComponentButton();
+        mdpHomePageHandle.uploadFile("E:\\02企信下载文件\\mdp-compile-components\\blocksDest\\mdpCompileComponentsBlocks.umd.min.js");
+        mdpHomePageHandle.clickConfirmAddCustomComponentButton();
     }
 }
 

@@ -7,6 +7,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,7 +37,30 @@ public class HandleBase {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 页面窗口最大化
+     */
     public void maxWindow(){
         this.driver.manage().window().maximize();
+    }
+
+    /**
+     * @param AbsolutePath 上传文件的绝对路径
+     */
+    public void uploadFile(String AbsolutePath) throws AWTException, InterruptedException {
+        StringSelection selection = new StringSelection(AbsolutePath);
+        // 把图片路径复制到剪切板
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+        Robot robot = new Robot();
+        Thread.sleep(3000);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+        Thread.sleep(2000);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        Thread.sleep(5000);
     }
 }

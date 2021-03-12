@@ -5,6 +5,7 @@ import org.demo2.base.DriverBase;
 import org.demo2.base.HandleBase;
 import org.demo2.enums.PlatForm;
 import org.demo2.pages.MDPHomePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -29,7 +30,12 @@ public class MDPHomePageHandle extends HandleBase {
         return this.driver;
     }
     public void ClickMDPProjectList(){
-        mdpHomePage.click(mdpHomePage.MDPProjectList());
+        try {
+            mdpHomePage.click(mdpHomePage.MDPProjectList());
+        }
+        catch (Exception e){
+            mdpHomePage.click(mdpHomePage.element(By.xpath("//div[@class='el-dialog__wrapper' and @data-v-be1f71c6]")));
+        }
     }
     public void ClickCreateProjectButton(){
         mdpHomePage.createProjectButton().click();
@@ -141,18 +147,19 @@ public class MDPHomePageHandle extends HandleBase {
      * @throws InterruptedException error
      */
     public void uploadIOSPackagingCertificate(String path) throws AWTException, InterruptedException {
-        StringSelection selection = new StringSelection(path);
-        // 把图片路径复制到剪切板
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
-        Robot robot = new Robot();
-        Thread.sleep(3000);
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_V);
-        Thread.sleep(2000);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+//        StringSelection selection = new StringSelection(path);
+//        // 把图片路径复制到剪切板
+//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+//        Robot robot = new Robot();
+//        Thread.sleep(3000);
+//        robot.keyPress(KeyEvent.VK_CONTROL);
+//        robot.keyPress(KeyEvent.VK_V);
+//        robot.keyRelease(KeyEvent.VK_CONTROL);
+//        robot.keyRelease(KeyEvent.VK_V);
+//        Thread.sleep(2000);
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.keyRelease(KeyEvent.VK_ENTER);
+        this.uploadFile(path);
     }
 
     /**
@@ -243,7 +250,7 @@ public class MDPHomePageHandle extends HandleBase {
     }
 
     /**
-     * 输入新页面的标题
+     * 输入新页面的名称
      * @param pageName 页面名称
      */
     public void inputPageName(String pageName){
@@ -251,7 +258,7 @@ public class MDPHomePageHandle extends HandleBase {
     }
 
     /**
-     * 输入新页面标题
+     * 输入新页面名称
      */
     public void inputPageName(){
         String pageName = "auto"+UUID.randomUUID().toString().replace("-", "");
@@ -259,11 +266,28 @@ public class MDPHomePageHandle extends HandleBase {
     }
 
     /**
+     * 输入页面标题
+     * @param pageTitle 页面标题
+     */
+    public void inputPageTitle(String pageTitle){
+        mdpHomePage.sendKey(mdpHomePage.pageTitleInput(), pageTitle);
+    }
+
+    /**
+     * 输入页面标题
+     */
+    public void inputPageTitle(){
+        String pageTitle = UUID.randomUUID().toString().replace("-", "");
+        mdpHomePage.sendKey(mdpHomePage.pageTitleInput(), pageTitle);
+    }
+
+
+    /**
      * 输入保存文件夹名称
      * @param folderName 保存文件夹名
      */
     public void inputPageSaveFolder(String folderName){
-        mdpHomePage.sendKey(mdpHomePage.saveFolderInput(), "auto"+folderName);
+        mdpHomePage.sendKey(mdpHomePage.saveFolderInput(), folderName);
     }
 
     /**
@@ -271,5 +295,52 @@ public class MDPHomePageHandle extends HandleBase {
      */
     public void clickSaveNewPageButton(){
         mdpHomePage.click(mdpHomePage.saveNewPageButton());
+    }
+
+    /**
+     * 店家上传资源文件按钮
+     */
+    public void clickUploadResourceFileButton(){
+        mdpHomePage.click(mdpHomePage.uploadResourceFileButton());
+    }
+
+    /**
+     * @param absolutePath 资源文件绝对路径
+     * @throws InterruptedException error
+     * @throws AWTException error
+     */
+    public void uploadResourceFile(String absolutePath) throws InterruptedException, AWTException {
+        this.uploadFile(absolutePath);
+    }
+
+    /**
+     * 点击确定添加资源文件按钮
+     */
+    public void clickConfirmAddResourceFileButton(){
+        mdpHomePage.click(mdpHomePage.confirmAddResourceFileButton());
+    }
+
+    /**
+     * 点击上传自定义组件按钮
+     */
+    public void clickUploadCustomComponentButton(){
+        mdpHomePage.click(mdpHomePage.uploadCustomComponentButton());
+    }
+
+    /**
+     * 上传自定义组件文件
+     * @param absolutPath 文件绝对路径
+     * @throws InterruptedException error
+     * @throws AWTException error
+     */
+    public void uploadCustomComponent(String absolutPath) throws InterruptedException, AWTException {
+        this.uploadFile(absolutPath);
+    }
+
+    /**
+     * 点击确认上传自定义组件按钮
+     */
+    public void clickConfirmAddCustomComponentButton(){
+        mdpHomePage.click(mdpHomePage.confirmAddCustomComponentButton());
     }
 }

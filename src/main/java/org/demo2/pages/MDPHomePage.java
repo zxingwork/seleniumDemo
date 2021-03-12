@@ -265,4 +265,35 @@ public class MDPHomePage extends BasePage {
         return element(By.xpath("/html/body/div[1]/div[2]/div[5]/div/div[3]/div/button[2]"));
     }
 
+    /**
+     * 点击上传按钮
+     * @return 元素
+     */
+    public WebElement uploadResourceFileButton(){
+        return element(By.xpath("/html/body/div/div/div/form/div/div/div/div/button"));
+    }
+
+    /**
+     * 确认添加资源文件按钮
+     * @return 元素
+     */
+    public WebElement confirmAddResourceFileButton(){
+        return element(By.xpath("/html/body/div[7]/div/div[3]/div/button[2]"));
+    }
+
+    /**
+     * 上传自定义组件按钮
+     * @return 元素
+     */
+    public WebElement uploadCustomComponentButton(){
+        return element(By.xpath("/html/body/div/div/div/form/div/div/div/div/button"));
+    }
+
+    /**
+     * 上传自定义组件确定按钮
+     * @return 元素
+     */
+    public WebElement confirmAddCustomComponentButton(){
+        return element(By.xpath("/html/body/div/div/div/div/button/span[text()='确定']"));
+    }
 }
