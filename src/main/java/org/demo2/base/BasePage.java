@@ -43,8 +43,8 @@ public class BasePage {
     }
 
     /**
-     * Click
-     * @param element
+     * Click 点击
+     * @param element 元素
      */
     public void click(WebElement element){
         if (element != null){
@@ -69,10 +69,19 @@ public class BasePage {
             logger.error("["+this.getTitle()+"]"+"输入的元素不存在");
         }
     }
+
+    /**
+     * 获取当前页面的title
+     * @return title
+     */
     public String getTitle(){
         return this.driver.getDriver().getTitle();
     }
 
+    /**
+     * 获取所有的标签页句柄
+     * @return 句柄集合
+     */
     public Set<String> getWindowHandles(){
         try{
             Set<String> handles = this.driver.getDriver().getWindowHandles();
@@ -86,6 +95,10 @@ public class BasePage {
         }
     }
 
+    /**
+     * 获取当前的句柄
+     * @return 句柄
+     */
     public String getWindowHandle(){
         try{
             String handle = this.driver.getDriver().getWindowHandle();

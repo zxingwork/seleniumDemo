@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.UUID;
 
 public class MDPHomePageHandle extends HandleBase {
     private Logger logger = Logger.getLogger(MDPHomePageHandle.class.getName());
@@ -179,6 +180,10 @@ public class MDPHomePageHandle extends HandleBase {
         mdpHomePage.click(mdpHomePage.ConfirmCreateAProject());
     }
 
+    /**
+     * 创建项目是否成功
+     * @return 是否成功
+     */
     public boolean assertAfterCreateProject(){
         try {
             mdpHomePage.alertAfterCreateAProject();
@@ -186,5 +191,85 @@ public class MDPHomePageHandle extends HandleBase {
         }catch (Exception e){
             return false;
         }
+    }
+
+    /**
+     * 点击安装工程依赖
+     */
+    public void clickInstallProjectDependencies(){
+        mdpHomePage.click(mdpHomePage.installProjectDependencies());
+    }
+
+    /**
+     * 点击返回工作区
+     */
+    public void clickBackWorkSpaceButton(){
+        mdpHomePage.click(mdpHomePage.backWorkSpaceButton());
+    }
+
+    /**
+     * 点击添加新也页面
+     */
+    public void clickAddNewPage(){
+        mdpHomePage.click(mdpHomePage.addPageButton());
+    }
+
+    /**
+     * 点击添加资源文件按钮
+     */
+    public void clickAddResourceFileButton(){
+        mdpHomePage.click(mdpHomePage.addResourceFileButton());
+    }
+
+    /**
+     * 点击新增自定义组件按钮
+     */
+    public void clickAddCustomComponentButton(){
+        mdpHomePage.click(mdpHomePage.addCustomComponentsButton());
+    }
+
+    /**
+     * 点击新增依赖
+     */
+    public void clickAddNewDependenciesButton(){
+        mdpHomePage.click(mdpHomePage.addNewDependenciesButton());
+    }
+
+    /**
+     * 新增Cordova插件
+     */
+    public void clickAddCordovaPlugin(){
+        mdpHomePage.click(mdpHomePage.addCordovaPlugin());
+    }
+
+    /**
+     * 输入新页面的标题
+     * @param pageName 页面名称
+     */
+    public void inputPageName(String pageName){
+        mdpHomePage.sendKey(mdpHomePage.pageNameInput(),"auto"+pageName);
+    }
+
+    /**
+     * 输入新页面标题
+     */
+    public void inputPageName(){
+        String pageName = "auto"+UUID.randomUUID().toString().replace("-", "");
+        mdpHomePage.sendKey(mdpHomePage.pageNameInput(), pageName);
+    }
+
+    /**
+     * 输入保存文件夹名称
+     * @param folderName 保存文件夹名
+     */
+    public void inputPageSaveFolder(String folderName){
+        mdpHomePage.sendKey(mdpHomePage.saveFolderInput(), "auto"+folderName);
+    }
+
+    /**
+     * 点击保存页面按钮
+     */
+    public void clickSaveNewPageButton(){
+        mdpHomePage.click(mdpHomePage.saveNewPageButton());
     }
 }

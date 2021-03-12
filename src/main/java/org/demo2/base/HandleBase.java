@@ -9,8 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Set;
-import java.util.UUID;
+
 
 public class HandleBase {
     private static Logger logger = Logger.getLogger(HandleBase.class.getName());

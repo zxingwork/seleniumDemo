@@ -169,7 +169,100 @@ public class MDPHomePage extends BasePage {
         return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[3]/div/button[2]"));
     }
 
+    /**
+     * 创建成功后提示框
+     * @return 元素
+     */
     public WebElement alertAfterCreateAProject(){
         return element(By.xpath("//div[@class='el-message el-message--success']"));
     }
+
+    /**
+     * 安装公共依赖按钮
+     * @return 元素
+     */
+    public WebElement installProjectDependencies(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[1]/div[1]/div[2]/ul/li[1]/div/span[1]"));
+    }
+
+    /**
+     * 返回工作区按钮
+     * @return 元素
+     */
+    public WebElement backWorkSpaceButton(){
+        return element(By.xpath("//div[@class='back-workspace']"));
+    }
+
+    /**
+     * 添加页面按钮
+     * @return 元素
+     */
+    public WebElement addPageButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/span[2]"));
+    }
+
+    /**
+     * 添加资源文件按钮
+     * @return 元素
+     */
+    public WebElement addResourceFileButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/span[2]"));
+    }
+
+    /**
+     * 添加自定义组件的按钮
+     * @return 元素
+     */
+    public WebElement addCustomComponentsButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div/span[2]"));
+    }
+
+    /**
+     * 新增依赖
+     * @return 元素
+     */
+    public WebElement addNewDependenciesButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[2]/div[4]/div[1]/div/span[2]"));
+    }
+
+    /**
+     * 添加Cordova插件
+     * @return 元素
+     */
+    public WebElement addCordovaPlugin(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[2]/div[5]/div[1]/div/span[2]"));
+    }
+    /* 新增页面 的元素*/
+    /**
+     * 新增页面的名称
+     * @return 元素
+     */
+    public WebElement pageNameInput(){
+        return element(By.xpath("//input[@placeholder='请输入页面文件名，如：login']"));
+    }
+
+    /**
+     * 新增页面的标题
+     * @return 元素
+     */
+    public WebElement pageTitleInput(){
+        return element(By.xpath("//input[@placeholder='请输入页面标题，如：登陆']"));
+    }
+
+    /**
+     * 新增页面的存放目录
+     * @return 元素
+     */
+    public WebElement saveFolderInput(){
+        return element(By.xpath("//input[@placeholder='请输入页面存放目录，如：dir1或dir1/dir2']"));
+    }
+
+    /**
+     * 新增页面的确认按钮
+     * @return 元素
+     */
+    public WebElement saveNewPageButton(){
+        return element(By.xpath("/html/body/div[1]/div[2]/div[5]/div/div[3]/div/button[2]"));
+    }
+
 }

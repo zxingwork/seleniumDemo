@@ -19,6 +19,8 @@ public class RunCases {
         DriverBase driverBase = new DriverBase("Chrome");
         driverBase.getDriver().manage().window().maximize();
         driverBase.getUrl("http://10.10.10.109/web/cap/ptc/login/CapLogin.jsp");
+
+
         LoginCapPageHandle loginCapPageHandle = new LoginCapPageHandle(driverBase);
         loginCapPageHandle.inputUsername("CapSuperAdmin");
         loginCapPageHandle.inputPassword("hello");
@@ -29,6 +31,7 @@ public class RunCases {
         }catch (Exception e){
             e.printStackTrace();
         }
+
 
         CapHomePageHandle capHomePageHandle = new CapHomePageHandle(driverBase);
         try{
@@ -41,6 +44,7 @@ public class RunCases {
         capHomePageHandle.ClickProjectModeling();
         capHomePageHandle.ClickMDProject();
         capHomePageHandle.switchToNewHandle();
+
 
         MDPHomePageHandle mdpHomePageHandle = new MDPHomePageHandle(driverBase);
         if (mdpHomePageHandle.onPage()){
@@ -67,10 +71,15 @@ public class RunCases {
         mdpHomePageHandle.inputServerAddr("127.0.0.1:8080","/api");
         mdpHomePageHandle.clickConfirmCreateAProject();
         if (mdpHomePageHandle.assertAfterCreateProject()){
-            mdpHomePageHandle.screenShot("保存项目成功");
+            mdpHomePageHandle.screenShot("创建项目成功");
         }else {
-            mdpHomePageHandle.screenShot("保存项目失败");
+            mdpHomePageHandle.screenShot("创建项目失败");
         }
+        mdpHomePageHandle.ClickMDPProjectList();
+        Thread.sleep(2000);
+        mdpHomePageHandle.clickInstallProjectDependencies();
+        mdpHomePageHandle.clickBackWorkSpaceButton();
+
     }
 }
 
