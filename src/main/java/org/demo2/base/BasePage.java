@@ -2,14 +2,20 @@ package org.demo2.base;
 
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
+import java.util.UUID;
 
 public class BasePage {
     private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -111,8 +117,25 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 窗口最大化
+     */
     public void maxWindow(){
         this.driver.getDriver().manage().window().maximize();
+    }
+
+    /**
+     * 截图
+     */
+    public void screenShot(){
+        String jpgName = UUID.randomUUID().toString().replace("-","");
+        File srcfile = ((TakesScreenshot) this.driver.getDriver()).getScreenshotAs(OutputType.FILE);
+        try{
+            FileUtils.copyFile(srcfile, new File("screenshot\\"+jpgName+".jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

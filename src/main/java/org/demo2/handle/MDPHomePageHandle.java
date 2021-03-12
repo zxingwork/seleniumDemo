@@ -17,6 +17,7 @@ public class MDPHomePageHandle extends HandleBase {
     private final MDPHomePage mdpHomePage;
     private WebDriver driver;
     public MDPHomePageHandle(DriverBase driver) {
+        super(driver);
         mdpHomePage = new MDPHomePage(driver);
         this.driver = driver.getDriver();
     }
@@ -176,5 +177,14 @@ public class MDPHomePageHandle extends HandleBase {
      */
     public void clickConfirmCreateAProject(){
         mdpHomePage.click(mdpHomePage.ConfirmCreateAProject());
+    }
+
+    public boolean assertAfterCreateProject(){
+        try {
+            mdpHomePage.alertAfterCreateAProject();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

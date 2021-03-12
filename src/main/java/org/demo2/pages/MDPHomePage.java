@@ -168,4 +168,8 @@ public class MDPHomePage extends BasePage {
     public WebElement ConfirmCreateAProject(){
         return element(By.xpath("/html/body/div[1]/div[2]/div[4]/div/div[3]/div/button[2]"));
     }
+
+    public WebElement alertAfterCreateAProject(){
+        return element(By.xpath("//div[@class='el-message el-message--success']"));
+    }
 }
